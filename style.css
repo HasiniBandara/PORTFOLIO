@@ -132,15 +132,21 @@ span {
 .home-img img {
     position: relative;
     top: 2rem;
-    width: 16vw;
+    width: 50vw;
+        /* adapts to screen size */
+        max-width: 250px;
+        /* prevents huge image on large screens */
+        height: auto;
     border-radius: 56%;
     cursor: pointer;
 }
 
 .home-content p {
     font-size: 2.3rem;
-    font-weight: 500;
-    width: 1000px;
+    width: 100%;
+    max-width: 600px;
+    /* adapt to mobile */
+    margin: 2rem auto;
 }
 
 .social-icons a {
@@ -397,7 +403,7 @@ span {
 
 .skills-container {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));    
     align-items: center;
     gap: 2.5rem;
 }
@@ -450,7 +456,6 @@ span {
     color: var(--text-color);
 }
 
-
 .social ul{
     list-style: none;
 }
@@ -496,6 +501,8 @@ span {
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    width: 100%;
+    max-width: 350px;
 }
 
 .personal {
@@ -654,7 +661,6 @@ span {
     .about img {
         width: 64vw;
         margin-top: 1rem;
-        margin-bottom: 3rem;
     }
 
     .projects h2 {
@@ -663,5 +669,54 @@ span {
 
     .projects-container {
         grid-template-columns: repeat(1,1fr);
+    }
+}
+
+
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 1.5rem 2rem;
+    }
+
+    .home-content h1 {
+        font-size: 4rem;
+    }
+
+    .home-content h3 {
+        font-size: 2rem;
+    }
+
+    .about img,
+    .about-content {
+        width: 90%;
+        margin: auto;
+    }
+
+    .projects-container {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    .skills-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact .social {
+        flex-direction: column;
+    }
+
+    .social a {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+
+  
+
+    .home-img img {
+        width: 60vw;
+        max-width: 200px;
     }
 }
